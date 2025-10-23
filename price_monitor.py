@@ -1,4 +1,3 @@
-import asyncio,os
 from tmall import *
 from db import *
 
@@ -9,7 +8,8 @@ async def main():
         cur = con.cursor()
         if not os.path.exists("sku.db"):
             init_sql(cur)
-        await create_session()
+        #   淘宝平台检索
+        await create_tmall_session()
     finally:
         con.close()
 
